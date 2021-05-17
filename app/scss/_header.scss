@@ -7,7 +7,7 @@
   }
 
   nav {
-    padding: 24px;
+    padding: 1.0625rem 1.5rem;
   }
 
   &__menu {
@@ -27,14 +27,28 @@
     a {
       font-size: $font-sm;
       color: $grayishBlue;
-      transition: all 0.5s ease-in-out;
+      position: relative;
+      transition: all 0.3s;
 
       &:not(:last-child) {
         margin-right: 2rem;
       }
 
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 5px;
+        right: 0;
+        left: 0;
+        bottom: -30px;
+      }
+
       &:hover {
         color: $darkBlue;
+        &::before {
+          background: linear-gradient(to right, $limeGreen, $brightCyan);
+        }
       }
     }
   }
