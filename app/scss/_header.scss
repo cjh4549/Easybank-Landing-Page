@@ -1,6 +1,8 @@
 .header {
   &__logo {
     img {
+      width: 8.8125rem;
+      height: 1.375rem;
     }
   }
 
@@ -25,6 +27,15 @@
     a {
       font-size: $font-sm;
       color: $grayishBlue;
+      transition: all 0.5s ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &:hover {
+        color: $darkBlue;
+      }
     }
   }
 
