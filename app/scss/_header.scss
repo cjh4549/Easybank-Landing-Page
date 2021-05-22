@@ -5,7 +5,7 @@
       display: block;
     }
 
-    .header__menu {
+    .header__toggle {
       > span:first-child {
         transform: rotate(45deg);
       }
@@ -30,6 +30,11 @@
     background-image: linear-gradient($darkBlue, transparent);
   }
 
+  nav {
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+  }
+
   &__logo {
     img {
       width: 8.8125rem;
@@ -37,11 +42,7 @@
     }
   }
 
-  nav {
-    padding: 1.0625rem 1.5rem;
-  }
-
-  &__menu {
+  &__toggle {
     //mobile menu
     > span {
       display: block;
@@ -55,46 +56,64 @@
         margin-bottom: 5px;
       }
     }
+  }
 
-    &__links {
-      a {
-        font-size: $font-sm;
-        color: $grayishBlue;
-        position: relative;
-        transition: all 0.3s;
+  &__menu {
+    position: absolute;
+    width: calc(100% - 3rem);
+    left: 50%;
+    transform: translate(-50%);
+    background-color: $white;
+    margin-top: 1.5rem;
+    padding: 1.625rem;
+    border-radius: 5px;
 
-        &:not(:last-child) {
-          margin-right: 2rem;
-        }
+    a {
+      display: block;
+      text-align: center;
+      color: $darkBlue;
+      padding: 0.625rem;
+    }
+  }
 
+  &__links {
+    a {
+      font-size: $font-sm;
+      color: $grayishBlue;
+      position: relative;
+      transition: all 0.3s;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &::before {
+        content: "";
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        position: absolute;
+        height: 5px;
+        right: 0;
+        left: 0;
+        bottom: -30px;
+        opacity: 0;
+        transition: opacity 0.4s;
+      }
+
+      &:hover {
+        color: $darkBlue;
         &::before {
-          content: "";
-          background: linear-gradient(to right, $limeGreen, $brightCyan);
-          position: absolute;
-          height: 5px;
-          right: 0;
-          left: 0;
-          bottom: -30px;
-          opacity: 0;
-          transition: opacity 0.4s;
-        }
-
-        &:hover {
-          color: $darkBlue;
-          &::before {
-            opacity: 1;
-          }
+          opacity: 1;
         }
       }
     }
+  }
 
-    &__cta {
-      font-size: $font-sm;
-      transition: opacity 0.2s;
+  &__cta {
+    font-size: $font-sm;
+    transition: opacity 0.2s;
 
-      &:hover {
-        opacity: 0.75;
-      }
+    &:hover {
+      opacity: 0.75;
     }
   }
 }
